@@ -1,175 +1,163 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Solicitar Orçamento – NCEA CONSULTORES</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Solicitar Orçamento | NCEA CONSULTORES</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f4f6f9;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6fa;
       margin: 0;
       padding: 0;
     }
 
-    header {
-      background-color: #004080;
-      color: white;
-      padding: 1rem 2rem;
-    }
-
-    header h1 {
-      margin: 0;
-    }
-
-    nav {
-      margin-top: 0.5rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 1rem;
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      border-left: 5px solid #005baa;
     }
 
     h2 {
+      color: #005baa;
       text-align: center;
-      color: #004080;
+      margin-bottom: 30px;
     }
 
     form {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #005baa;
+      outline: none;
     }
 
     label {
-      display: block;
-      margin-top: 1rem;
       font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.3rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      resize: vertical;
+      color: #333;
     }
 
     button {
-      margin-top: 1.5rem;
-      background-color: #004080;
-      color: white;
+      padding: 14px;
+      background: linear-gradient(90deg, #005baa, #f4a300);
       border: none;
-      padding: 0.9rem 1.5rem;
+      color: white;
+      border-radius: 8px;
       font-size: 1rem;
-      border-radius: 6px;
       cursor: pointer;
-      width: 100%;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background-color: #003366;
+      background: linear-gradient(90deg, #004080, #d68a00);
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #004080;
-      color: white;
-      margin-top: 2rem;
+    .success-message {
+      background-color: #dff0d8;
+      color: #3c763d;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 8px;
+      display: none;
     }
   </style>
-
-  <script>
-    function mostrarAlerta(event) {
-      event.preventDefault();
-      const form = event.target;
-      const dados = new FormData(form);
-      fetch(form.action, {
-        method: "POST",
-        body: dados,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          alert("✅ Pedido de orçamento enviado com sucesso!");
-          form.reset();
-        } else {
-          alert("⚠️ Erro ao enviar o formulário.");
-        }
-      }).catch(() => {
-        alert("❌ Erro de rede. Verifique sua conexão.");
-      });
-    }
-  </script>
 </head>
-
 <body>
-  <header>
-    <h1>NCEA CONSULTORES</h1>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="cursos.html">Cursos</a>
-      <a href="inscricoes.html">Inscrições</a>
-      <a href="orcamento.html">Orçamento</a>
-      <a href="realizacoes.html">Realizações</a>
-      <a href="testemunhos.html">Testemunhos</a>
-      <a href="contactos.html">Contactos</a>
-    </nav>
-  </header>
 
-  <main>
-    <h2>Solicitação de Orçamento</h2>
-    <form action="https://formspree.io/f/xwpqqlpw" method="POST" onsubmit="mostrarAlerta(event)">
-      <label for="nome">Nome completo:</label>
-      <input type="text" id="nome" name="nome" placeholder="Ex: Nelson Augusto" required />
+  <div class="container">
+    <h2>Solicitar Orçamento</h2>
+    <form id="orcamentoForm" action="https://formspree.io/f/xwpqqlpw" method="POST">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" name="nome" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" required>
 
-      <label for="telefone">Telefone:</label>
-      <input type="tel" id="telefone" name="telefone" placeholder="+258 xxx xxx xxx" required />
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone" required>
 
-      <label for="servico">Serviço ou curso desejado:</label>
-      <select id="servico" name="servico" required>
-        <option value="">-- Seleccione uma opção --</option>
+      <label for="curso">Curso/Formação de interesse</label>
+      <select id="curso" name="curso">
+        <option value="">-- Seleccione --</option>
         <option value="Monitoria e Avaliação">Monitoria e Avaliação</option>
-        <option value="Excel Básico, Médio e Avançado">Excel Básico, Médio e Avançado</option>
-        <option value="Informática Básica, Intermediária e Avançada">Informática Básica, Intermediária e Avançada</option>
+        <option value="Excel Básico">Excel Básico</option>
+        <option value="Excel Intermediário">Excel Intermediário</option>
+        <option value="Excel Avançado">Excel Avançado</option>
+        <option value="Informática Básica">Informática Básica</option>
+        <option value="Informática Intermediária">Informática Intermediária</option>
+        <option value="Informática Avançada">Informática Avançada</option>
         <option value="Oratória e Expressão Pública">Oratória e Expressão Pública</option>
+        <option value="Administração de Pessoas">Administração de Pessoas</option>
+        <option value="Filosofia Social">Filosofia Social</option>
+        <option value="Gestão de Projectos">Gestão de Projectos</option>
+        <option value="Desenvolvimento de Projectos Sociais">Desenvolvimento de Projectos Sociais</option>
         <option value="Outro">Outro</option>
       </select>
 
-      <label for="mensagem">Informações adicionais:</label>
-      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva detalhes como datas, quantidade de pessoas, local, etc." required></textarea>
+      <label for="mensagem">Detalhes adicionais</label>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva brevemente a sua necessidade..."></textarea>
 
       <button type="submit">Enviar Pedido</button>
-    </form>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 NCEA CONSULTORES. Todos os direitos reservados.</p>
-  </footer>
+      <div class="success-message" id="successMsg">Obrigado! O seu pedido foi enviado com sucesso.</div>
+      <div class="error-message" id="errorMsg">Erro ao enviar. Por favor, tente novamente.</div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('orcamentoForm');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          errorMsg.style.display = 'none';
+          form.reset();
+        } else {
+          throw new Error("Erro ao enviar");
+        }
+      } catch (error) {
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
+
 </body>
 </html>
