@@ -1,0 +1,64 @@
+/* Paleta de cores personalizada */
+:root {
+    --azul-ncea: #0059b3;
+    --dourado-ncea: #d4af37;
+    --laranja-ncea: #fca311;
+    --branco: #ffffff;
+    --cinza-escuro: #333333;
+}
+
+/* Estilo geral */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--branco);
+    color: var(--cinza-escuro);
+    line-height: 1.6;
+}
+
+/* Cabeçalho / Navbar */
+.navbar {
+    background-color: var(--azul-ncea) !important;
+}
+
+.navbar-brand {
+    color: var(--dourado-ncea) !important;
+    font-size: 1.8rem;
+}
+
+.nav-link {
+    color: var(--branco) !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--laranja-ncea) !important;
+}
+
+/* Banner */
+header {
+    background-color: var(--dourado-ncea);
+    color: var(--cinza-escuro);
+}
+
+/* Botões personalizados */
+.btn-primary {
+    background-color: var(--azul-ncea);
+    border-color: var(--azul-ncea);
+}
+
+.btn-primary:hover {
+    background-color: var(--laranja-ncea);
+    border-color: var(--laranja-ncea);
+}
+
+/* Secções */
+section {
+    padding: 60px 0;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--cinza-escuro);
+    color: var(--branco);
+    font-size: 0.9rem;
+}
