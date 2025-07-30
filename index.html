@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NCEA CONSULTORES - Página Inicial</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Cores personalizadas conforme solicitado */
+        .bg-dourado {
+            background: linear-gradient(45deg, #ffb347, #ffcc33);
+            color: #1a1a1a;
+        }
+        .text-dourado {
+            color: #ffb347;
+        }
+        .icon-check {
+            color: #ffb347;
+            margin-right: 0.5rem;
+        }
+        /* Card serviços com sombra e bordas arredondadas */
+        .card-servico {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 179, 71, 0.4);
+            transition: transform 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        .card-servico:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(255, 179, 71, 0.6);
+        }
+        /* Título Serviços */
+        #servicos h2 {
+            border-bottom: 3px solid #ffb347;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            color: #004e92;
+            font-weight: 700;
+        }
+        /* Lista serviços */
+        .list-unstyled li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,7 +50,15 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">NCEA CONSULTORES</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Alternar navegação"
+            >
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menu">
@@ -42,8 +87,78 @@
     <section class="py-5">
         <div class="container text-center">
             <h2>Quem Somos</h2>
-            <p>Somos uma consultora moçambicana especializada em capacitação, desenvolvimento de projectos sociais e formação online para comunidades e instituições.</p>
+            <p>
+                Somos uma consultora moçambicana especializada em capacitação, desenvolvimento de projectos sociais e formação online para comunidades e instituições.
+            </p>
             <a href="sobre.html" class="btn btn-primary">Saiba Mais</a>
+        </div>
+    </section>
+
+    <!-- Secção Serviços -->
+    <section id="servicos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">✅ Serviços da NCEA Consultores</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-servico p-4 h-100">
+                        <h5 class="text-dourado">1. Desenvolvimento de Projectos Sociais</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><span class="icon-check">✔</span>Elaboração de propostas inovadoras e sustentáveis.</li>
+                            <li><span class="icon-check">✔</span>Estruturação, implementação e avaliação de projectos.</li>
+                            <li><span class="icon-check">✔</span>Identificação de oportunidades de financiamento e parcerias.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-servico p-4 h-100">
+                        <h5 class="text-dourado">2. Monitoria e Avaliação de Projectos</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><span class="icon-check">✔</span>Elaboração de planos de M&A (Meio-Termo, Final).</li>
+                            <li><span class="icon-check">✔</span>Criação de indicadores, ferramentas e sistemas de recolha de dados.</li>
+                            <li><span class="icon-check">✔</span>Avaliação participativa e produção de relatórios baseados em evidências.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-servico p-4 h-100">
+                        <h5 class="text-dourado">3. Apoio Técnico e Consultoria Especializada</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><span class="icon-check">✔</span>Consultoria em gestão organizacional e projectos.</li>
+                            <li><span class="icon-check">✔</span>Mentoria a líderes, activistas e gestores comunitários.</li>
+                            <li><span class="icon-check">✔</span>Criação de metodologias ajustadas ao contexto local.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Continue adicionando os restantes serviços aqui -->
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-servico p-4 h-100">
+                        <h5 class="text-dourado">4. Produção de Documentos Estratégicos</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><span class="icon-check">✔</span>Relatórios técnicos, narrativos e institucionais.</li>
+                            <li><span class="icon-check">✔</span>Estatutos, regulamentos internos e planos estratégicos.</li>
+                            <li><span class="icon-check">✔</span>Políticas institucionais (género, juventude, protecção, ambiente...).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-servico p-4 h-100">
+                        <h5 class="text-dourado">5. Pesquisas, Estudos de Base e Diagnósticos</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><span class="icon-check">✔</span>Estudos de viabilidade técnica, económica e social.</li>
+                            <li><span class="icon-check">✔</span>Levantamento de dados quantitativos e qualitativos.</li>
+                            <li><span class="icon-check">✔</span>Diagnósticos participativos comunitários.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Repita para os outros serviços... -->
+
+            </div>
         </div>
     </section>
 
