@@ -5,9 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Solicitar Orçamento – NCEA CONSULTORES</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #004080;
+    }
+
+    form {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #003366;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #004080;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+
   <script>
     function mostrarAlerta(event) {
-      event.preventDefault(); // Impede o envio imediato
+      event.preventDefault();
       const form = event.target;
       const dados = new FormData(form);
       fetch(form.action, {
@@ -21,14 +115,15 @@
           alert("✅ Pedido de orçamento enviado com sucesso!");
           form.reset();
         } else {
-          alert("⚠️ Ocorreu um erro ao enviar o formulário.");
+          alert("⚠️ Erro ao enviar o formulário.");
         }
       }).catch(() => {
-        alert("❌ Não foi possível enviar o formulário. Verifique a sua conexão.");
+        alert("❌ Erro de rede. Verifique sua conexão.");
       });
     }
   </script>
 </head>
+
 <body>
   <header>
     <h1>NCEA CONSULTORES</h1>
@@ -45,24 +140,32 @@
   </header>
 
   <main>
-    <section>
-      <h2>Solicitar Orçamento</h2>
-      <form action="https://formspree.io/f/xwpqqlpw" method="POST" onsubmit="mostrarAlerta(event)">
-        <label for="nome">Nome completo:</label>
-        <input type="text" id="nome" name="nome" required />
+    <h2>Solicitação de Orçamento</h2>
+    <form action="https://formspree.io/f/xwpqqlpw" method="POST" onsubmit="mostrarAlerta(event)">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" name="nome" placeholder="Ex: Nelson Augusto" required />
 
-        <label for="email">Email de contacto:</label>
-        <input type="email" id="email" name="email" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
 
-        <label for="curso">Curso ou serviço desejado:</label>
-        <input type="text" id="curso" name="curso" required />
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="+258 xxx xxx xxx" required />
 
-        <label for="mensagem">Detalhes adicionais:</label>
-        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+      <label for="servico">Serviço ou curso desejado:</label>
+      <select id="servico" name="servico" required>
+        <option value="">-- Seleccione uma opção --</option>
+        <option value="Monitoria e Avaliação">Monitoria e Avaliação</option>
+        <option value="Excel Básico, Médio e Avançado">Excel Básico, Médio e Avançado</option>
+        <option value="Informática Básica, Intermediária e Avançada">Informática Básica, Intermediária e Avançada</option>
+        <option value="Oratória e Expressão Pública">Oratória e Expressão Pública</option>
+        <option value="Outro">Outro</option>
+      </select>
 
-        <button type="submit">Enviar Orçamento</button>
-      </form>
-    </section>
+      <label for="mensagem">Informações adicionais:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva detalhes como datas, quantidade de pessoas, local, etc." required></textarea>
+
+      <button type="submit">Enviar Pedido</button>
+    </form>
   </main>
 
   <footer>
