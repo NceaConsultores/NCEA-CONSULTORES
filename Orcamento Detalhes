@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Orçamento de Serviços - NCEA Consultores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #003366;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e0f7fa;
+    }
+
+    .total {
+      font-weight: bold;
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Orçamento de Serviços</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Serviço</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Preço Unitário (MZN)</th>
+        <th>Subtotal (MZN)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Elaboração de Projecto</td>
+        <td>Desenvolvimento completo de projecto social</td>
+        <td>1</td>
+        <td>20.000</td>
+        <td>20.000</td>
+      </tr>
+      <tr>
+        <td>Monitoria e Avaliação</td>
+        <td>Criação de plano de M&A com indicadores</td>
+        <td>1</td>
+        <td>15.000</td>
+        <td>15.000</td>
+      </tr>
+      <tr>
+        <td>Formação em Excel</td>
+        <td>Curso completo (básico a avançado)</td>
+        <td>10 participantes</td>
+        <td>1.500</td>
+        <td>15.000</td>
+      </tr>
+      <tr>
+        <td class="total" colspan="4">Total Geral</td>
+        <td class="total">50.000 MZN</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
